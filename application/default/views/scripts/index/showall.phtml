@@ -1,0 +1,24 @@
+<p><a>Displaying Short View</a></p>
+<table>
+<tr>
+     <th>Nickname</th>
+     <th>Serial</th>
+     <th>Site</th>
+     <th>Status</th>
+     <th>&nbsp;</th>
+</tr>
+<?php foreach($this->items as $item) : ?>
+<tr>
+     <td><?php echo $this->escape($item->nickname);?></td>
+     <td><?php echo $this->escape($item->serial);?></td>
+     <td><?php echo $this->escape($item->sitename); ?>
+     <td><?php echo $this->escape($item->statusname); ?>
+     <td>
+          <a href="<?php echo $this->url(array('controller'=>'index',
+              'action'=>'edit', 'id'=>$item->id));?>">Edit</a>
+          <a href="<?php echo $this->url(array('controller'=>'index',
+              'action'=>'delete', 'id'=>$item->id));?>">Delete</a>
+     </td>
+</tr>
+<?php endforeach; ?>
+</table>

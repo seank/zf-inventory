@@ -1,0 +1,13 @@
+CREATE VIEW "v_itemshort" AS SELECT "public"."t_item_types"."name",
+ "public"."t_items"."id", "public"."t_items"."serial", "public"."t_items"."nickname",
+ "public"."t_sites"."name" AS sitename, "public"."t_status"."name" AS statusname
+
+ FROM "public"."t_items" INNER JOIN "public"."t_status"
+
+ ON ("public"."t_items"."status_id" = "public"."t_status"."id")
+
+ INNER JOIN "public"."t_sites"
+
+ ON ("public"."t_items"."site_id" = "public"."t_sites"."id")
+
+ INNER JOIN "public"."t_item_types" ON ("public"."t_items"."type_id" = "public"."t_item_types"."id")
